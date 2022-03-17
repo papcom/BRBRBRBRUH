@@ -1,0 +1,23 @@
+.analPump {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bögSexOrgy {
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-start;
+}
+
+input, button {
+    width: 40%;
+}
+
+h1, h2, p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
