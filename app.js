@@ -27,7 +27,12 @@ function checkAnswer() {
         nk += 1;
         sc -= 30;
         if (sc < 0) { //If answer is wrong & social credit < 0:
-        document.getElementById("riddle").innerHTML = "You lost, execution date: 老干嘛";
+            document.getElementById("riddle").innerHTML = "You lost, execution date: 老干嘛";
+            document.getElementById("riddle").style.color = "red";
+            document.getElementById("ok").style.color = "whitesmoke";
+            document.getElementById("nk").style.color = "whitesmoke";
+            document.getElementById("kd").style.color = "whitesmoke";
+            document.getElementById("sc").style.color = "whitesmoke";
             document.getElementById("label").style.display = "none";
             document.getElementById("input").style.display = "none";
             document.getElementById("button").style.display = "none";
