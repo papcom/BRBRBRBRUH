@@ -4,13 +4,39 @@ let ok = 0; //oll korrect
 let nk = 0; //not
 let sc = 0; //social credit score
 let correctAns = 0;
-function newRiddle() { //Creates new multiplication riddle
+function newRiddle() { //Creates new multiplication problem
+    document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: normal</strong>";
     num1 = Math.round(Math.random()*10);
     num2 = Math.round(Math.random()*10);
     document.getElementById("riddle").innerHTML = num1 + " x " + num2;
     correctAns = num1*num2;
 }
-newRiddle();
+function newRiddleHard() { //Creates harder multiplication problem
+    document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: hard</strong>";
+    num1 = Math.round((Math.random()+1)*10);
+    num2 = Math.round((Math.random()+1)*10);
+    document.getElementById("riddle").innerHTML = num1 + " x " + num2;
+    correctAns = num1*num2;
+}
+function newRiddleSuperHard() { //Creates even harder multiplication problem
+    document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: super hard</strong>";
+    num1 = Math.round(Math.random()*100);
+    num2 = Math.round(Math.random()*100);
+    document.getElementById("riddle").innerHTML = num1 + " x " + num2;
+    correctAns = num1*num2;
+}
+function difficultySwitch() {
+    if (ok >= 20) { //Twenty correct answers switches to super hard mode
+        newRiddleSuperHard();
+    }
+    else if (ok >= 10) { //Ten correct answers switches to hard mode
+        newRiddleHard();
+    }
+    else {
+        newRiddle();
+    }
+}
+difficultySwitch();
 function checkAnswer() {
     document.getElementById("image").src = "zhongxina.png";
     var ans = document.querySelector(".input").value;
@@ -21,30 +47,31 @@ function checkAnswer() {
         image.src = "scplus.png"
         console.log("Correct");
         console.log(num1 + " times " + num2 + " equals " + (num1*num2));
-        newRiddle();
+        difficultySwitch();
     }
     else {
         nk += 1;
         sc -= 30;
         if (sc < 0) { //If answer is wrong & social credit < 0:
+            document.getElementById("title").innerHTML = "Restart";
             document.getElementById("riddle").innerHTML = "You lost, execution date: 老干嘛";
             document.getElementById("riddle").style.color = "red";
+            document.getElementById("label").style.display = "none";
+            document.getElementById("input").style.display = "none";
+            document.getElementById("button").style.display = "none";
             document.getElementById("ok").style.color = "whitesmoke";
             document.getElementById("nk").style.color = "whitesmoke";
             document.getElementById("kd").style.color = "whitesmoke";
             document.getElementById("sc").style.color = "whitesmoke";
-            document.getElementById("label").style.display = "none";
-            document.getElementById("input").style.display = "none";
-            document.getElementById("button").style.display = "none";
             document.getElementById("header").style.backgroundColor = "red";
             document.getElementById("sexHåla").style.backgroundColor = "black";
-            document.getElementById("body").style.backgroundColor = "grey";
+            document.getElementById("body").style.backgroundColor = "black";
             image.src = "exedate.jpg"
         }
         else { //If answer is just wrong:
             image.src = "scminus.png"
             console.log("Wrong answer");
-            newRiddle()
+            difficultySwitch();
         }
     }
     if (nk == 0) { //If-statement to prevent 'K/D = infinity'
