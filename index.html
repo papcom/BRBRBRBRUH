@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
-<body>
-    <div class="header">
-        <h1>Multiplicatión test</h1>
+<body id="body">
+    <div class="header" id="header">
+        <h1 class="title"><a href="index.html">Multiplicatión test</a></h1>
     </div>
     <div class="analPump">
-        <div class="sexHåla">
+        <div class="sexHåla" id="sexHåla">
             <div class="bögSexOrgy">
                 <h2 class="riddleMeThis" id="riddle"></h2>
-                <label for="input">Your answer:</label>
+                <label id="label" for="input"><strong>Your answer:</strong></label>
                 <input class="input" type="text" id="input" name="input">
                 <button class="button" id="button" type="button" onclick="checkAnswer()">Enter</button>
-                <p id="kd"></p>
                 <p id="ok"></p>
                 <p id="nk"></p>
+                <p id="kd"></p>
                 <p id="sc"></p>
             </div>
             <div class="socialCredit">
-                <img id="image" src="" alt="scplus">
+                <img id="image" src="zhongxina.png" alt="socialcredit">
             </div>
         </div>
     </div>
+    <footer class="footer">
+        <img src="bottom-text.png" alt="bottom-text">
+    </footer>
 </body>
 </html>
