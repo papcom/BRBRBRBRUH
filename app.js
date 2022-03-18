@@ -4,6 +4,7 @@ let ok = 0; //oll korrect
 let nk = 0; //not
 let sc = 0; //social credit score
 let correctAns = 0;
+let difficultyMultiplier = 1; //Sets the multiplier for loss difference
 function newRiddle() { //Creates new multiplication problem
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: normal</strong>";
     num1 = Math.round(Math.random()*10);
@@ -17,6 +18,7 @@ function newRiddleHard() { //Creates harder multiplication problem
     num2 = Math.round((Math.random()+1)*10);
     document.getElementById("riddle").innerHTML = num1 + " x " + num2;
     correctAns = num1*num2;
+    difficultyMultiplier = 2;
 }
 function newRiddleSuperHard() { //Creates even harder multiplication problem
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: super hard</strong>";
@@ -24,6 +26,7 @@ function newRiddleSuperHard() { //Creates even harder multiplication problem
     num2 = Math.round(Math.random()*100);
     document.getElementById("riddle").innerHTML = num1 + " x " + num2;
     correctAns = num1*num2;
+    difficultyMultiplier = 4;
 }
 function difficultySwitch() {
     if (ok >= 20) { //Twenty correct answers switches to super hard mode
@@ -51,7 +54,7 @@ function checkAnswer() {
     }
     else {
         nk += 1;
-        sc -= 30;
+        sc -= 30 * difficultyMultiplier;
         if (sc < 0) { //If answer is wrong & social credit < 0:
             document.getElementById("title").innerHTML = "Restart";
             document.getElementById("riddle").innerHTML = "You lost, execution date: 老干嘛";
@@ -69,7 +72,7 @@ function checkAnswer() {
             image.src = "exedate.jpg"
         }
         else { //If answer is just wrong:
-            image.src = "scminus.png"
+            imageSwitch();
             console.log("Wrong answer");
             difficultySwitch();
         }
@@ -84,4 +87,16 @@ function checkAnswer() {
     document.getElementById("nk").innerHTML = "Wrong answers = " + nk;
     document.getElementById("sc").innerHTML = "Social credit = " + sc;
     document.getElementById("input").value = "";
+}
+
+function imageSwitch() {
+    if (difficultyMultiplier == 2) { //Call on -60 image if difficulty == hard
+        image.src = "scminus60.png";
+    }
+    else if (difficultyMultiplier == 4) { //Call on -120 image if difficulty == super hard
+        image.src = "scminus120.png";
+    }
+    else { //Regular loss image (-30)
+        image.src = "scminus.png";
+    }
 }
