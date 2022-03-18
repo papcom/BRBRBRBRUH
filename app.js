@@ -28,7 +28,7 @@ function newRiddleSuperHard() { //Creates even harder multiplication problem
     correctAns = num1*num2;
     difficultyMultiplier = 4;
 }
-function difficultySwitch() {
+function difficultySwitch() { //Function that calls on problems by difficulty
     if (ok >= 20) { //Twenty correct answers switches to super hard mode
         newRiddleSuperHard();
     }
@@ -89,7 +89,7 @@ function checkAnswer() {
     document.getElementById("input").value = "";
 }
 
-function imageSwitch() {
+function imageSwitch() { //Function that changes loss image (-30, -60 and -120)
     if (difficultyMultiplier == 2) { //Call on -60 image if difficulty == hard
         image.src = "scminus60.png";
     }
