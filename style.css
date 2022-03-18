@@ -16,7 +16,7 @@ html, body {
     transition-duration: 1s;
 }
 
-.analPump {
+.midPage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@ html, body {
     transition-duration: 1s;
 }
 
-.sexHåla {
+.centerDiv {
     display: flex;
     width: 70%;
     height: 100%;
@@ -37,7 +37,7 @@ html, body {
     transition-duration: 1s;
 }
 
-.bögSexOrgy {
+.quiz {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,7 +97,7 @@ footer img{
 }
 
 @media screen and (max-width: 600px) {
-    .sexHåla {
+    .centerDiv {
         display: flex;
         width: 70%;
         height: 700px;
@@ -108,7 +108,7 @@ footer img{
         box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
         transition-duration: 1s;
     }
-    .bögSexOrgy {
+    .quiz {
         display: flex;
         flex-direction: column;
         align-items: center;

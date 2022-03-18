@@ -67,7 +67,7 @@ function checkAnswer() {
             document.getElementById("kd").style.color = "whitesmoke";
             document.getElementById("sc").style.color = "whitesmoke";
             document.getElementById("header").style.backgroundColor = "red";
-            document.getElementById("sexHåla").style.backgroundColor = "black";
+            document.getElementById("centerDiv").style.backgroundColor = "black";
             document.getElementById("body").style.backgroundColor = "black";
             image.src = "exedate.webp"
         }
