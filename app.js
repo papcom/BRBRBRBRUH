@@ -41,13 +41,13 @@ function difficultySwitch() { //Function that calls on problems by difficulty
 }
 difficultySwitch();
 function checkAnswer() {
-    document.getElementById("image").src = "zhongxina.png";
+    document.getElementById("image").src = "zhong-xina.webp";
     var ans = document.querySelector(".input").value;
     var image = document.getElementById("image");
     if (ans == correctAns) { //If answer is correct:
         ok += 1;
         sc += 27;
-        image.src = "scplus.png"
+        image.src = "scplus.webp"
         console.log("Correct");
         console.log(num1 + " times " + num2 + " equals " + (num1*num2));
         difficultySwitch();
@@ -69,7 +69,7 @@ function checkAnswer() {
             document.getElementById("header").style.backgroundColor = "red";
             document.getElementById("sexHåla").style.backgroundColor = "black";
             document.getElementById("body").style.backgroundColor = "black";
-            image.src = "exedate.jpg"
+            image.src = "exedate.webp"
         }
         else { //If answer is just wrong:
             imageSwitch();
@@ -90,13 +90,13 @@ function checkAnswer() {
 }
 
 function imageSwitch() { //Function that changes loss image (-30, -60 and -120)
-    if (difficultyMultiplier == 2) { //Call on -60 image if difficulty == hard
-        image.src = "scminus60.png";
+    if (difficultyMultiplier == 4) { //Call on -120 image if difficulty == super hard
+        image.src = "scminus120.webp";
     }
-    else if (difficultyMultiplier == 4) { //Call on -120 image if difficulty == super hard
-        image.src = "scminus120.png";
+    else if (difficultyMultiplier == 2) { //Call on -60 image if difficulty == hard
+        image.src = "scminus60.webp";
     }
     else { //Regular loss image (-30)
-        image.src = "scminus.png";
+        image.src = "scminus.webp";
     }
 }
