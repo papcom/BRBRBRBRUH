@@ -1,31 +1,75 @@
 let num1 = 0;
 let num2 = 0;
 let ok = 0; //oll korrect
-let nk = 0; //not
+let nk = 0; //not korrect
 let sc = 0; //social credit score
-let correctAns = 0;
+let correctAns = 0; //The correct answer variable
+let mode = 0; //Variable that toggles modes
 let difficultyMultiplier = 1; //Sets the multiplier for loss difference
+
+//Modes:
+//Add = 0
+//Sub = 1
+//Multi = 2
+//Divi = 3
+
+function toggleMode() { //Function that toggles mode
+    if (mode == 0) {
+        mode = 1;
+        document.getElementById("title").innerHTML = "Subtraction";
+    }
+    else if (mode == 1) {
+        mode = 2;
+        document.getElementById("title").innerHTML = "Multiplicatión";
+    }
+    else if (mode == 2) {
+        mode = 3;
+        document.getElementById("title").innerHTML = "División";
+    }
+    else {
+        mode = 0;
+        document.getElementById("title").innerHTML = "Addition";
+    }
+    checkAnswerByMode();
+}
+
+function checkAnswerByMode() { //Function that checks what mode it is and sets correctAns
+    if (mode == 0) {
+        correctAns = num1+num2;
+        document.getElementById("riddle").innerHTML = num1 + " + " + num2;
+    }
+    else if (mode == 1) {
+        correctAns = num1-num2;
+        document.getElementById("riddle").innerHTML = num1 + " - " + num2;
+    }
+    else if (mode == 2) {
+        correctAns = num1*num2;
+        document.getElementById("riddle").innerHTML = num1 + " x " + num2;
+    }
+    else if (mode == 3) {
+        correctAns = num1/num2;
+        document.getElementById("riddle").innerHTML = num1 + " / " + num2;
+    }
+}
+
 function newRiddle() { //Creates new multiplication problem
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: normal</strong>";
     num1 = Math.round(Math.random()*10);
     num2 = Math.round(Math.random()*10);
-    document.getElementById("riddle").innerHTML = num1 + " x " + num2;
-    correctAns = num1*num2;
+    checkAnswerByMode();
 }
 function newRiddleHard() { //Creates harder multiplication problem
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: hard</strong>";
     num1 = Math.round((Math.random()+1)*10);
     num2 = Math.round((Math.random()+1)*10);
-    document.getElementById("riddle").innerHTML = num1 + " x " + num2;
-    correctAns = num1*num2;
+    checkAnswerByMode();
     difficultyMultiplier = 2;
 }
 function newRiddleSuperHard() { //Creates even harder multiplication problem
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: super hard</strong>";
     num1 = Math.round(Math.random()*100);
     num2 = Math.round(Math.random()*100);
-    document.getElementById("riddle").innerHTML = num1 + " x " + num2;
-    correctAns = num1*num2;
+    checkAnswerByMode();
     difficultyMultiplier = 4;
 }
 function difficultySwitch() { //Function that calls on problems by difficulty
@@ -62,6 +106,7 @@ function checkAnswer() {
             document.getElementById("label").style.display = "none";
             document.getElementById("input").style.display = "none";
             document.getElementById("button").style.display = "none";
+            document.getElementById("mode").style.display = "none";
             document.getElementById("ok").style.color = "whitesmoke";
             document.getElementById("nk").style.color = "whitesmoke";
             document.getElementById("kd").style.color = "whitesmoke";

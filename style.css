@@ -80,7 +80,10 @@ input {
 }
 
 button {
-    width: 15%;
+    width: auto;
+    border-style: none;
+    border-radius: 4px;
+    background-color: whitesmoke;
 }
 
 p {
