@@ -13,7 +13,7 @@ let difficultyMultiplier = 1; //Sets the multiplier for loss difference
 //Multi = 2
 //Divi = 3
 
-function checkAnswerByMode() { //Function that checks what mode it is and sets correctAns
+function checkMode() { //Function that checks what mode it is and sets correctAns
     if (mode == 0) {
         correctAns = num1+num2;
         document.getElementById("riddle").innerHTML = num1 + " + " + num2;
@@ -57,7 +57,7 @@ function toggleMode() { //Function that toggles mode
         mode = 0;
         document.getElementById("title").innerHTML = "Addition";
     }
-    checkAnswerByMode();
+    checkMode();
     difficultySwitch();
 }
 
@@ -65,20 +65,20 @@ function newRiddle() { //Creates new maths problem, single digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: normal</strong>";
     num1 = Math.round(Math.random()*10);
     num2 = Math.round(Math.random()*10);
-    checkAnswerByMode();
+    checkMode();
 }
 function newRiddleHard() { //Creates harder problem digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: hard</strong>";
     num1 = Math.round((Math.random()+1)*10);
     num2 = Math.round((Math.random()+1)*10);
-    checkAnswerByMode();
+    checkMode();
     difficultyMultiplier = 2;
 }
 function newRiddleSuperHard() { //Sets even harder problem digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: super hard</strong>";
     num1 = Math.round(Math.random()*100);
     num2 = Math.round(Math.random()*100);
-    checkAnswerByMode();
+    checkMode();
     difficultyMultiplier = 4;
 }
 
