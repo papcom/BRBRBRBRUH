@@ -60,20 +60,20 @@ function toggleMode() { //Function that toggles mode
     checkAnswerByMode();
 }
 
-function newRiddle() { //Creates new multiplication problem
+function newRiddle() { //Creates new maths problem, single digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: normal</strong>";
     num1 = Math.round(Math.random()*10);
     num2 = Math.round(Math.random()*10);
     checkAnswerByMode();
 }
-function newRiddleHard() { //Creates harder multiplication problem
+function newRiddleHard() { //Creates harder problem digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: hard</strong>";
     num1 = Math.round((Math.random()+1)*10);
     num2 = Math.round((Math.random()+1)*10);
     checkAnswerByMode();
     difficultyMultiplier = 2;
 }
-function newRiddleSuperHard() { //Creates even harder multiplication problem
+function newRiddleSuperHard() { //Sets even harder problem digits
     document.getElementById("difficultyLevel").innerHTML = "<strong>Difficulty: super hard</strong>";
     num1 = Math.round(Math.random()*100);
     num2 = Math.round(Math.random()*100);
@@ -144,7 +144,7 @@ function checkAnswer() {
     document.getElementById("input").value = "";
 }
 
-function imageSwitch() { //Function that changes loss image (-30, -60 and -120)
+function imageSwitch() { //Function that sets loss image (-30, -60 and -120)
     if (difficultyMultiplier == 4) { //Call on -120 image if difficulty == super hard
         image.src = "scminus120.webp";
     }
