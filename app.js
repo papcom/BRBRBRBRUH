@@ -58,6 +58,7 @@ function toggleMode() { //Function that toggles mode
         document.getElementById("title").innerHTML = "Addition";
     }
     checkAnswerByMode();
+    difficultySwitch();
 }
 
 function newRiddle() { //Creates new maths problem, single digits
