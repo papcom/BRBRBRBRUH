@@ -13,6 +13,33 @@ let difficultyMultiplier = 1; //Sets the multiplier for loss difference
 //Multi = 2
 //Divi = 3
 
+function checkAnswerByMode() { //Function that checks what mode it is and sets correctAns
+    if (mode == 0) {
+        correctAns = num1+num2;
+        document.getElementById("riddle").innerHTML = num1 + " + " + num2;
+        document.getElementById("header").style.backgroundColor = "green";
+        document.getElementById("title").style.color = "white";
+    }
+    else if (mode == 1) {
+        correctAns = num1-num2;
+        document.getElementById("riddle").innerHTML = num1 + " - " + num2;
+        document.getElementById("header").style.backgroundColor = "gold";
+        document.getElementById("title").style.color = "black";
+    }
+    else if (mode == 2) {
+        correctAns = num1*num2;
+        document.getElementById("riddle").innerHTML = num1 + " x " + num2;
+        document.getElementById("header").style.backgroundColor = "maroon";
+        document.getElementById("title").style.color = "white";
+    }
+    else if (mode == 3) {
+        correctAns = num1/num2;
+        document.getElementById("riddle").innerHTML = num1 + " / " + num2
+        document.getElementById("header").style.backgroundColor = "midnightblue";
+        document.getElementById("title").style.color = "white";
+    }
+}
+
 function toggleMode() { //Function that toggles mode
     if (mode == 0) {
         mode = 1;
@@ -31,25 +58,6 @@ function toggleMode() { //Function that toggles mode
         document.getElementById("title").innerHTML = "Addition";
     }
     checkAnswerByMode();
-}
-
-function checkAnswerByMode() { //Function that checks what mode it is and sets correctAns
-    if (mode == 0) {
-        correctAns = num1+num2;
-        document.getElementById("riddle").innerHTML = num1 + " + " + num2;
-    }
-    else if (mode == 1) {
-        correctAns = num1-num2;
-        document.getElementById("riddle").innerHTML = num1 + " - " + num2;
-    }
-    else if (mode == 2) {
-        correctAns = num1*num2;
-        document.getElementById("riddle").innerHTML = num1 + " x " + num2;
-    }
-    else if (mode == 3) {
-        correctAns = num1/num2;
-        document.getElementById("riddle").innerHTML = num1 + " / " + num2;
-    }
 }
 
 function newRiddle() { //Creates new multiplication problem
@@ -72,6 +80,7 @@ function newRiddleSuperHard() { //Creates even harder multiplication problem
     checkAnswerByMode();
     difficultyMultiplier = 4;
 }
+
 function difficultySwitch() { //Function that calls on problems by difficulty
     if (ok >= 20) { //Twenty correct answers switches to super hard mode
         newRiddleSuperHard();
@@ -83,6 +92,7 @@ function difficultySwitch() { //Function that calls on problems by difficulty
         newRiddle();
     }
 }
+
 difficultySwitch();
 function checkAnswer() {
     document.getElementById("image").src = "zhong-xina.webp";
